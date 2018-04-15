@@ -1,53 +1,48 @@
 <html lang="en">
-<head>
-  <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1">
-  <title>Webshop</title>
 
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<head>
+    <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1">
+    <title>Webshop</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
-  <div class="container">
+    <div class="container">
 
-    <!-- MENU -->
-    <div class="left-box shop-menu">
-      <button class="accordion">Seciton 1</button>
-      <div class="panel">
-        <div class="product">
-          <h1>Item 1</h1>
-
-          <div class="button">
-            <div class="price">$15</div>
-            <a class="addtocart">
-            <div class="add">Add to Cart</div>
-            </a>
-          </div>
-
+        <!-- SHOPPING MENU -->
+        <div class="left-box shop-menu">
         </div>
-      </div>
 
-      <button class="accordion">Section 2</button>
-      <div class="panel">
-        <p>Lorem ipsum...</p>
-      </div>
-
-      <button class="accordion">Section 3</button>
-      <div class="panel">
-        <p>Lorem ipsum...</p>
-      </div>
+        <!-- SHOPPING CART -->
+        <div class="right-box shop-cart">
+            Shopping cart
+        </div>
     </div>
 
-    <!-- SHOPPING CART -->
-    <div class="right-box shop-cart">
-      Test
-    </div>
+    <!-- TEMPLATES -->
+    <template id="shop-section">
+        <button class="accordion"></button>
+        <div class="panel">
+        </div>
+    </template>
 
-  </div>
+    <template id="shop-item">
+        <div class="product">
+            <h1></h1>
+            <div class="button">
+                <div class="price"></div>
+                <a class="addtocart">
+                <div class="add">Add to Cart</div>
+                </a>
+            </div>
+        </div>
+    </template>
 
-  <!-- TEMPLATES -->
 
-  <script src="script.js"></script>
+    <script src="products.js"></script>
+    <script src="setup.js"></script>
 </body>
 
 </html>
