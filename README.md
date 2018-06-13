@@ -1,4 +1,4 @@
-#single-page-webshop
+# single-page-webshop
 
-##Documentation
+## Documentation
 View the [table of contents](doc/TOC.md)
