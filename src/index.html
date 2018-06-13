@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
@@ -21,9 +22,43 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
+  <!-- component template -->
+  <script type="text/x-template" id="shop-template">
+    <table>
+      <thead>
+        <tr>
+          <th v-for="key in keys"
+            @click="sortBy(key)"
+            :class="{ active: sortKey == key }">
+            {{ key | capitalize }}
+            <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+            </span>
+          </th>
+          <!-- add to cart button -->
+          <th>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="entry in filteredData">
+          <td v-for="key in keys">
+            {{entry[key]}}
+          </td>
+          <td>
+            Add to cart
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+
   <!-- Add your site or application content here -->
   <div id="app">
-    {{ message }}
+    <h1> {{ motd }} </h1>
+    <shop
+      :data="shopData"
+      :keys="shopKeys"
+    > </shop>
   </div>
 
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
@@ -32,6 +67,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script>window.Vue || document.write('<script src="js/vendor/vue-2.5.16.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
+  <script src="js/products.js"></script>
   <script src="js/main.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
