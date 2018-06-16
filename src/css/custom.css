@@ -57,3 +57,9 @@ th.active .arrow {
   border-right: 4px solid transparent;
   border-top: 4px solid #fff;
 }
+
+.container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}

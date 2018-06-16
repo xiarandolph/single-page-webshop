@@ -24,41 +24,31 @@
 
   <!-- component template -->
   <script type="text/x-template" id="shop-template">
-    <table>
-      <thead>
-        <tr>
-          <th v-for="key in keys"
-            @click="sortBy(key)"
-            :class="{ active: sortKey == key }">
-            {{ key | capitalize }}
-            <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-            </span>
-          </th>
-          <!-- add to cart button -->
-          <th>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="entry in filteredData">
-          <td v-for="key in keys">
-            {{entry[key]}}
-          </td>
-          <td>
-            Add to cart
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <div v-if="selection">
+        <p @click="select()">go back</p>
+        <article>
+          <h1>{{ selection.name }}</h1>
+          <p>{{ selection.description }}</p>
+          <p v-if="selection.price">${{ selection.price }}</p>
+        </article>
+      </div>
+      <article v-for="product in filteredData"
+        @click="select(product)">
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+        <p v-if="product.options">more options available</p>
+        <p v-if="product.price">${{ product.price }}</p>
+      </article>
+    </div>
   </script>
 
-  <!-- Add your site or application content here -->
-  <div id="app">
+  <!-- application content -->
+  <div id="app" class="container">
     <h1> {{ motd }} </h1>
     <shop
       :data="shopData"
-      :keys="shopKeys"
-    > </shop>
+    ></shop>
   </div>
 
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
