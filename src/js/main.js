@@ -11,14 +11,14 @@ Vue.component('shop', {
   },
   computed: {
     filteredData: function() {
-      return (this.selection ? this.selection.options : this.data)
+      return (this.selection ? this.selection.types : this.data)
     }
   },
   methods: {
     select: function(selection) {
       if (!selection)
         this.selection = this.selectionStack.pop()
-      else if (selection.options) {
+      else if (selection.types || selection.options) {
         if (this.selection)
           this.selectionStack.push(this.selection)
         this.selection = selection

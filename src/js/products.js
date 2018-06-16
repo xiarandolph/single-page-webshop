@@ -1,26 +1,50 @@
-var productList = [{
-  name: "Product 1",
-  description: 'The first of many',
-  options: [{
-    name: "Type A",
-    price: "5"
-  }, {
-    name: "Type B",
-    price: "18",
-    options: [{
-      name: "Type BA",
-      price: "19"
-    }, {
-      name: "Type BB",
-      price: "27"
-    }]
-  }]
-}, {
-  name: "Product 2",
-  description: "The second one",
-  price: 7
-}, {
-  name: "Product 3",
-  description: "The third and final sample product",
-  price: 16
-}]
+class Product {
+  constructor(name, args) {
+    this.name = name
+    this.description = args.description || ""
+    this.price = args.price || 0
+    this.types = args.types || null //array
+    this.options = args.options || null //array
+  }
+}
+
+class Option {
+  constructor(name, price, description = "") {
+    this.name = name
+    this.price = price
+    this.description = description
+  }
+}
+
+let optOne = new Option("Option 1", 3, "Adds to the cost")
+
+var productList = [
+  new Product("Product 1", {
+    description: "The first of many",
+    types: [
+      new Product("Type A", {
+        description: "First type of the first product",
+        price: 5
+      }),
+      new Product("Type B", {
+        description: "Second type of the first product, with options",
+        price: 18,
+        options: [
+          optOne,
+          new Option("Option 2", 7)
+        ]
+      })
+    ]
+  }),
+  new Product("Product 2", {
+    description: "The second one with some options",
+    price: 7,
+    options: [
+      optOne
+    ]
+  }),
+  new Product("Product 3", {
+    description: "The third and final sample product",
+    price: 16
+  })
+]

@@ -37,7 +37,7 @@
         @click="select(product)">
         <h1>{{ product.name }}</h1>
         <p>{{ product.description }}</p>
-        <p v-if="product.options">more options available</p>
+        <p v-if="product.types || product.options">more types or options available</p>
         <p v-if="product.price">${{ product.price }}</p>
       </article>
     </div>
