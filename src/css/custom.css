@@ -5,10 +5,11 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 90%;
+  min-width: 300px;
   margin-left: auto;
   margin-right: auto;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .row {
@@ -17,8 +18,7 @@ body {
   overflow: auto;
 }
 
-.row h1,
-.row p {
+.row div {
   display: inline;
   float: left;
   width: auto;
@@ -34,14 +34,23 @@ body {
 }
 
 .right {
-  float: left;
+  display: inline-block;
+  position: relative;
+}
+
+.float-right {
+  float: right;
+  position: relative;
+  text-align: right;
 }
 
 article {
   display: block;
   float: left;
+  min-width: 400px;
   width: 32.3%;
   height: 200px;
+  overflow: hidden;
   margin: .5% .5%;
   background: #AAAAAA33
 }
@@ -56,6 +65,18 @@ article div {
   padding-right: 10px;
 }
 
+@media only screen and (max-width:1400px) {
+  article {
+    width: 49%;
+  }
+}
+
+@media only screen and (max-width:910px) {
+  article {
+    width: 99%;
+  }
+}
+
 .option {
-  height: 120px
+  height: 100px;
 }

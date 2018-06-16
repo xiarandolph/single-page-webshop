@@ -25,13 +25,15 @@
   <!-- component template -->
   <script type="text/x-template" id="shop-template">
     <div>
-      <div v-if="selection">
-        <div class="row">
+      <div class="row" v-if="selection">
+        <div class="left">
           <p @click="selectProduct()"><<</p>
-          <h1>{{ selection.name }}</h1>
         </div>
-        <p>{{ selection.description }}</p>
-        <p v-if="selection.price">${{ selection.adjustedPrice }} - add to cart</p>
+        <div class="right">
+          <h1>{{ selection.name }}</h1>
+          <p>{{ selection.description }}</p>
+          <p v-if="selection.price">${{ selection.adjustedPrice }} - add to cart</p>
+        </div>
       </div>
 
       <article class="product"
@@ -54,10 +56,14 @@
           v-for="option in selection.options"
           :class="{active: option.selected}"
           @click="selectOption(option)">
-            <h1>{{ option.name }} </h1>
-            <p>{{ option.description }}</p>
-            <p>{{ option.price }}</p>
-            <p v-if="option.selected">Selected</p>
+            <div class="left">
+              <h1>{{ option.name }} </h1>
+              <p>{{ option.description }}</p>
+            </div>
+            <div class="float-right">
+              <p>{{ option.price }}</p>
+              <p v-if="option.selected">Selected</p>
+            </div>
         </article>
       </div>
     </div>
