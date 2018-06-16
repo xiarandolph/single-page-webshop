@@ -1,4 +1,6 @@
 [ToC](TOC.md)
 
 # Usage
-Nothing yet
+
+### js/products.js
+Populate the productList with whatever products you want
