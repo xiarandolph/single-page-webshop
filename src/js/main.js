@@ -15,7 +15,7 @@ Vue.component('shop', {
     }
   },
   methods: {
-    select: function(selection) {
+    selectProduct: function(selection) {
       if (!selection)
         this.selection = this.selectionStack.pop()
       else if (selection.types || selection.options) {
@@ -23,6 +23,11 @@ Vue.component('shop', {
           this.selectionStack.push(this.selection)
         this.selection = selection
       }
+    },
+    selectOption: function(option) {
+      option.selected = !option.selected
+      this.selection.adjustedPrice += option.price * (option.selected ? 1 :
+        -1)
     }
   }
 })

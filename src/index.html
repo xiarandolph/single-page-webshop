@@ -27,19 +27,29 @@
     <div>
       <div v-if="selection">
         <div class="row">
-          <p @click="select()"><<</p>
+          <p @click="selectProduct()"><<</p>
           <h1>{{ selection.name }}</h1>
         </div>
         <p>{{ selection.description }}</p>
-        <p v-if="selection.price">${{ selection.price }}</p>
+        <p v-if="selection.price">${{ selection.adjustedPrice }} - add to cart</p>
       </div>
+
       <article v-for="product in filteredData"
-        @click="select(product)">
+        @click="selectProduct(product)">
         <h1>{{ product.name }}</h1>
         <p>{{ product.description }}</p>
         <p v-if="product.types || product.options">more types or options available</p>
-        <p v-if="product.price">${{ product.price }}</p>
+        <p v-if="product.price">${{ product.price }} - add to cart</p>
       </article>
+
+      <div v-if="selection && selection.options">
+        <article v-for="option in selection.options"
+          :class="{active: option.selected}"
+          @click="selectOption(option)">
+          <p>{{option}}</p>
+          <p v-if="option.selected">Selected</p>
+        </article>
+      </div>
     </div>
   </script>
 

@@ -3,16 +3,18 @@ class Product {
     this.name = name
     this.description = args.description || ""
     this.price = args.price || 0
+    this.adjustedPrice = this.price //to be computed
     this.types = args.types || null //array
     this.options = args.options || null //array
   }
 }
 
 class Option {
-  constructor(name, price, description = "") {
+  constructor(name, price, description = "", selected = false) {
     this.name = name
     this.price = price
     this.description = description
+    this.selected = selected
   }
 }
 
