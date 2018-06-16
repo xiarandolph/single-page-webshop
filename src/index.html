@@ -26,12 +26,12 @@
   <script type="text/x-template" id="shop-template">
     <div>
       <div v-if="selection">
-        <p @click="select()">go back</p>
-        <article>
+        <div class="row">
+          <p @click="select()"><<</p>
           <h1>{{ selection.name }}</h1>
-          <p>{{ selection.description }}</p>
-          <p v-if="selection.price">${{ selection.price }}</p>
-        </article>
+        </div>
+        <p>{{ selection.description }}</p>
+        <p v-if="selection.price">${{ selection.price }}</p>
       </div>
       <article v-for="product in filteredData"
         @click="select(product)">
@@ -45,7 +45,7 @@
 
   <!-- application content -->
   <div id="app" class="container">
-    <h1> {{ motd }} </h1>
+    <h1>{{ motd }}</h1>
     <shop
       :data="shopData"
     ></shop>
