@@ -5,6 +5,7 @@ Vue.component('shop', {
   },
   data: function() {
     return {
+      selectionStack: [], //holds previous selections
       selection: null
     }
   },
@@ -15,7 +16,14 @@ Vue.component('shop', {
   },
   methods: {
     select: function(selection) {
-      this.selection = selection
+      if (!selection) {
+        this.selection = this.selectionStack.pop()
+      } else {
+        if (this.selection) {
+          this.selectionStack.push(this.selection)
+        }
+        this.selection = selection
+      }
     }
   }
 })
