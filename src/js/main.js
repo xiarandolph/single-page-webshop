@@ -16,12 +16,11 @@ Vue.component('shop', {
   },
   methods: {
     select: function(selection) {
-      if (!selection) {
+      if (!selection)
         this.selection = this.selectionStack.pop()
-      } else {
-        if (this.selection) {
+      else if (selection.options) {
+        if (this.selection)
           this.selectionStack.push(this.selection)
-        }
         this.selection = selection
       }
     }
