@@ -6,23 +6,27 @@ class Product {
     this.adjustedPrice = this.price //to be computed
     this.types = args.types || null //array
     this.options = args.options || null //array
+    this.imgPath = args.imgPath || null
   }
 }
 
 class Option {
-  constructor(name, price, description = "", selected = false) {
+  constructor(name, price, description = "") {
     this.name = name
     this.price = price
     this.description = description
-    this.selected = selected
+    this.selected = false
   }
 }
 
-let optOne = new Option("Option 1", 3, "Adds to the cost")
+var optOne = function() {
+  return new Option("Option 1", 3, "Adds to the cost")
+}
 
 var productList = [
   new Product("Product 1", {
     description: "The first of many",
+    imgPath: "res/cupholders.jpg",
     types: [
       new Product("Type A", {
         description: "First type of the first product",
@@ -32,7 +36,7 @@ var productList = [
         description: "Second type of the first product, with options",
         price: 18,
         options: [
-          optOne,
+          optOne(),
           new Option("Option 2", 7)
         ]
       })
@@ -42,11 +46,15 @@ var productList = [
     description: "The second one with some options",
     price: 7,
     options: [
-      optOne
+      optOne()
     ]
   }),
   new Product("Product 3", {
-    description: "The third and final sample product",
+    description: "The third sample product",
     price: 16
+  }),
+  new Product("Product 4", {
+    description: "Testing the css overflow",
+    price: 35
   })
 ]
