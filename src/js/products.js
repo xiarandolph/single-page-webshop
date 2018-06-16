@@ -20,24 +20,26 @@ class Option {
 }
 
 var optOne = function() {
-  return new Option("Option 1", 3, "Adds to the cost")
+  return new Option("Donation", 3, "Adds to the cost")
 }
 
 var productList = [
-  new Product("Product 1", {
-    description: "The first of many",
+  new Product("Cup Holders", {
+    description: "Pool cup holder floats",
     imgPath: "res/cupholders.jpg",
     types: [
-      new Product("Type A", {
-        description: "First type of the first product",
-        price: 5
+      new Product("Donut", {
+        description: "Donut cup holder",
+        imgPath: "res/donut.jpg",
+        price: 16
       }),
-      new Product("Type B", {
-        description: "Second type of the first product, with options",
-        price: 18,
+      new Product("Flamingo", {
+        description: "Flamingo cup holder",
+        imgPath: "res/flamingo.jpg",
+        price: 16,
         options: [
           optOne(),
-          new Option("Option 2", 7)
+          new Option("Two flamingo heads", 7)
         ]
       })
     ]

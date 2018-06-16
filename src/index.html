@@ -25,9 +25,12 @@
   <!-- component template -->
   <script type="text/x-template" id="shop-template">
     <div>
-      <div class="row" v-if="selection">
+      <div class="row " v-if="selection">
         <div class="left">
           <p @click="selectProduct()"><<</p>
+        </div>
+        <div class="left" v-if="selection.imgPath">
+          <img id="smallImage" :src="selection.imgPath"/>
         </div>
         <div class="right">
           <h1>{{ selection.name }}</h1>
@@ -41,7 +44,8 @@
         @click="selectProduct(product)">
         <div class="left">
           <h1>{{ product.name }}</h1>
-          <img v-if="product.imgPath"
+          <img id="smallImage"
+            v-if="product.imgPath"
             :src="product.imgPath"/>
         </div>
         <div class="right">
