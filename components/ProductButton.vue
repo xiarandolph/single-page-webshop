@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <button>Add to Cart</button>
+      <button @click="addToCart">Add to Cart</button>
     </div>
   </div>
 </template>
@@ -10,9 +10,9 @@
 export default {
   name: 'product-button',
   props: ['product'],
-  data: function () {
-    return {
-      cart: "temp"
+  methods: {
+    addToCart () {
+      this.$store.commit('cart/add', this.product)
     }
   }
 }

@@ -1,16 +1,26 @@
 <template>
   <div class="container">
-    <product-item :product="{name: 'Product 1'}"></product-item>
-    <product-item :product="{name: 'Product 2'}"></product-item>
+    <product-item v-for="product in products"
+      :key="product.uuid"
+      :product="product">
+    </product-item>
+    <cart></cart>
   </div>
 </template>
 
 <script>
 import ProductItem from '~/components/ProductItem.vue'
+import Cart from '~/components/Cart.vue'
+
+import products from '~/assets/products.js'
 
 export default {
+  data: function() {
+    return { products }
+  },
   components: {
-    ProductItem
+    ProductItem,
+    Cart
   }
 }
 </script>
