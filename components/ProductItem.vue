@@ -1,0 +1,27 @@
+<template>
+  <div>
+    <div class="product">
+      <h1>{{product.name}}</h1>
+      <product-button :product="product"></product-button>
+    </div>
+  </div>
+</template>
+
+<script>
+import ProductButton from './ProductButton'
+
+export default {
+  name: 'product-item',
+  props: ['product'],
+  components: {
+    'product-button': ProductButton
+  }
+}
+</script>
+
+<style scoped>
+.product {
+  min-width: 300px;
+  padding: 10px;
+}
+</style>
