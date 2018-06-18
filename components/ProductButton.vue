@@ -11,8 +11,8 @@ export default {
   name: 'product-button',
   props: ['product'],
   methods: {
-    addToCart () {
-      this.$store.commit('cart/add', this.product)
+    addToCart() {
+      this.$store.dispatch('addToCart', this.product.id)
     }
   }
 }

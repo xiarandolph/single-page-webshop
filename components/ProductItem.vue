@@ -3,7 +3,7 @@
     <div class="product">
       <h1>{{product.name}}</h1>
       <p>{{product.description}}</p>
-      <p>{{product.basePrice}}</p>
+      <p>{{product.price}}</p>
       <product-button :product="product"></product-button>
     </div>
   </div>

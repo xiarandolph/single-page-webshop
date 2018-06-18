@@ -1,10 +1,10 @@
 <template>
   <div>
     <ul>
-      <li v-for="item in items"
-        :key="item.uuid">
+      <li v-for="(item, index) in items"
+        :key="index">
         {{item}}
-        <button @click="remove">remove</button>
+        <button @click="remove(index)">remove</button>
       </li>
     </ul>
   </div>
@@ -15,12 +15,17 @@ export default {
   name: 'cart',
   computed: {
     items () {
-      return this.$store.state.cart.items
+      //get actual item based on id
+      return this.$store.getters.inCart.map(cartItem => {
+        return this.$store.getters.inStore.find(storeItem => {
+          return cartItem === storeItem.id
+        })
+      })
     }
   },
   methods: {
-    remove (item) {
-      this.$store.commit('cart/remove', item)
+    remove(index) {
+      this.$store.dispatch('removeFromCart', index)
     }
   }
 }
