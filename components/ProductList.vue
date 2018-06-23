@@ -1,9 +1,10 @@
 <template>
   <b-container fluid>
     <b-row v-for="(group,index) in groupedProducts"
-      :key=index>
+      :key="index">
       <b-col v-for="product in group"
-        :key="product.id">
+        :key="product.id"
+        style="max-width:33.3%;">
         <product-item
           :product="product">
         </product-item>

@@ -1,10 +1,16 @@
 <template>
-  <article class="product">
-    <h1>{{product.name}}</h1>
-    <p>{{product.description}}</p>
-    <p>{{product.price}}</p>
-    <product-button :product="product"></product-button>
-  </article>
+  <b-card>
+    <b-media no-body>
+      <b-media-aside vertical-align="center">
+        <b-img blank blank-color="#ccc" width="128" height="128" alt="placeholder" />
+      </b-media-aside>
+      <b-media-body class="ml-3">
+        <h2>{{product.name}}</h2>
+        <p>{{product.description}}</p>
+        <product-button :product="product"></product-button>
+      </b-media-body>
+    </b-media>
+  </b-card>
 </template>
 
 <script>
@@ -18,13 +24,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.product {
-  display: block;
-  float: left;
-  padding: 10px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-</style>

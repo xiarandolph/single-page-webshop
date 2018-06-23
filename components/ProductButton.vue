@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <b-button-group>
       <b-button @click="addToCart">Add to Cart</b-button>
-  </div>
+      <b-button variant="info">{{product.price}}</b-button>
+  </b-button-group>
 </template>
 
 <script>
