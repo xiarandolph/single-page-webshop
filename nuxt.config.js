@@ -28,7 +28,9 @@ module.exports = {
     }]
   },
 
-  routerBase,
+  router: {
+    base: 'single-page-webshop'
+  },
 
   /*
    ** Customize the progress bar color
