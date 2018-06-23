@@ -1,15 +1,15 @@
 <template>
   <div class="container">
-    <product-item v-for="product in inStore"
-      :key="product.uuid"
-      :product="product">
-    </product-item>
-    <cart></cart>
+    <product-list class="left"
+      :products="inStore">
+    </product-list>
+    <cart class="right">
+    </cart>
   </div>
 </template>
 
 <script>
-import ProductItem from '~/components/ProductItem.vue'
+import ProductList from '~/components/ProductList.vue'
 import Cart from '~/components/Cart.vue'
 
 export default {
@@ -19,7 +19,7 @@ export default {
     }
   },
   components: {
-    ProductItem,
+    ProductList,
     Cart
   }
 }
@@ -27,7 +27,17 @@ export default {
 
 <style>
 .container {
-  min-height: 100vh;
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
 }
+
+.left {
+  display: inline-block;
+  max-width: 60%;
+  height: 100%;
+  overflow: auto;
+}
+
 </style>
