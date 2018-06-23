@@ -23,9 +23,8 @@ export default {
 .product {
   display: block;
   float: left;
-  width: 300px;
-  min-width: 300px;
-  margin: .5% .5%;
   padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 </style>
