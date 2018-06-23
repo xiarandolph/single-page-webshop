@@ -1,11 +1,15 @@
 <template>
-  <div class="container">
-    <product-list class="left"
-      :products="inStore">
-    </product-list>
-    <cart class="right">
-    </cart>
-  </div>
+  <b-container fluid>
+    <b-row>
+      <b-col cols="8">
+        <product-list :products="inStore">
+        </product-list>
+      </b-col>
+      <b-col>
+        <cart></cart>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -24,20 +28,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.container {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-}
-
-.left {
-  display: inline-block;
-  max-width: 60%;
-  height: 100%;
-  overflow: auto;
-}
-
-</style>
