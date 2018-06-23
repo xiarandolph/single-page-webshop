@@ -1,3 +1,10 @@
+//add router.base to repository when on github pages
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/single-page-webshop/'
+  }
+} : {}
+
 module.exports = {
   /*
    ** Headers of the page
@@ -20,6 +27,9 @@ module.exports = {
       href: '/favicon.ico'
     }]
   },
+
+  routerBase,
+
   /*
    ** Customize the progress bar color
    */
