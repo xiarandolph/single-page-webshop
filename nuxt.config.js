@@ -29,7 +29,7 @@ module.exports = {
   },
 
   router: {
-    base: 'single-page-webshop'
+    base: '/single-page-webshop/'
   },
 
   /*
