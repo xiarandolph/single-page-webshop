@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <div class="product">
-      <h1>{{product.name}}</h1>
-      <p>{{product.description}}</p>
-      <p>{{product.price}}</p>
-      <product-button :product="product"></product-button>
-    </div>
-  </div>
+  <article class="product">
+    <h1>{{product.name}}</h1>
+    <p>{{product.description}}</p>
+    <p>{{product.price}}</p>
+    <product-button :product="product"></product-button>
+  </article>
 </template>
 
 <script>
@@ -23,7 +21,11 @@ export default {
 
 <style scoped>
 .product {
+  display: block;
+  float: left;
+  width: 300px;
   min-width: 300px;
+  margin: .5% .5%;
   padding: 10px;
 }
 </style>
