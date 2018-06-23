@@ -1,8 +1,8 @@
 <template>
-  <b-card>
+  <b-card class="h-100">
     <b-media no-body>
-      <b-media-aside vertical-align="center">
-        <b-img blank blank-color="#ccc" width="128" height="128" alt="placeholder" />
+      <b-media-aside vertical-align="top">
+        <b-img blank blank-color="#ccc" width="128" height="128" alt="placeholder"/>
       </b-media-aside>
       <b-media-body class="ml-3">
         <h2>{{product.name}}</h2>
